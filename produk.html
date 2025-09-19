@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Paket VPS — Legmed Cloud</title>
+  <meta name="description" content="Daftar paket VPS Legmed Cloud dengan harga hemat.">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <span>Legmed Cloud</span>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Beranda</a>
+        <a class="active" href="produk.html">Produk</a>
+      </nav>
+    </header>
+
+    <h2 class="section-title">Paket VPS</h2>
+    <p class="muted">Slide akan bergeser otomatis. Kamu juga bisa geser manual (swipe) di mobile.</p>
+
+    <div class="carousel" id="carousel">
+      <div class="track" id="track">
+        <!-- Slide 1 -->
+        <div class="slide">
+          <div class="card">
+            <div class="plan-header">
+              <div class="plan-title">RAM 2 GB • 2 CPU • 3 TB</div>
+              <div class="price">Rp 22.500</div>
+            </div>
+            <ul class="features">
+              <li>✅ Cocok untuk toko online kecil & bot</li>
+              <li>✅ Free Request OS</li>
+              <li>✅ Garansi 25 hari (2×)</li>
+              <li>✅ Low latency</li>
+            </ul>
+            <div class="order-wrap">
+              <a class="btn order" href="https://wa.me/6283845138333?text=%5BOrder%5D%20Legmed%20Cloud%20-%20Paket%202GB%2F2CPU%2F3TB%20-%20Rp%2022.500" target="_blank" rel="noopener">Order Sekarang</a>
+            </div>
+          </div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="slide">
+          <div class="card">
+            <div class="plan-header">
+              <div class="plan-title">RAM 4 GB • 2 CPU • 4 TB</div>
+              <div class="price">Rp 30.500</div>
+            </div>
+            <ul class="features">
+              <li>✅ Pas untuk website bisnis & panel ringan</li>
+              <li>✅ Free Request OS</li>
+              <li>✅ Garansi 25 hari (2×)</li>
+              <li>✅ Low latency</li>
+            </ul>
+            <div class="order-wrap">
+              <a class="btn order" href="https://wa.me/6283845138333?text=%5BOrder%5D%20Legmed%20Cloud%20-%20Paket%204GB%2F2CPU%2F4TB%20-%20Rp%2030.500" target="_blank" rel="noopener">Order Sekarang</a>
+            </div>
+          </div>
+        </div>
+        <!-- Slide 3 -->
+        <div class="slide">
+          <div class="card">
+            <div class="plan-header">
+              <div class="plan-title">RAM 8 GB • 4 CPU • 5 TB</div>
+              <div class="price">Rp 45.000</div>
+            </div>
+            <ul class="features">
+              <li>✅ Cocok untuk aplikasi menengah & banyak trafik</li>
+              <li>✅ Free Request OS</li>
+              <li>✅ Garansi 25 hari (2×)</li>
+              <li>✅ Low latency</li>
+            </ul>
+            <div class="order-wrap">
+              <a class="btn order" href="https://wa.me/6283845138333?text=%5BOrder%5D%20Legmed%20Cloud%20-%20Paket%208GB%2F4CPU%2F5TB%20-%20Rp%2045.000" target="_blank" rel="noopener">Order Sekarang</a>
+            </div>
+          </div>
+        </div>
+        <!-- Slide 4 -->
+        <div class="slide">
+          <div class="card">
+            <div class="plan-header">
+              <div class="plan-title">RAM 16 GB • 4 CPU • 8 TB</div>
+              <div class="price">Rp 75.000</div>
+            </div>
+            <ul class="features">
+              <li>✅ Siap untuk panel/VM kecil & microservices</li>
+              <li>✅ Free Request OS</li>
+              <li>✅ Garansi 25 hari (2×)</li>
+              <li>✅ Low latency</li>
+            </ul>
+            <div class="order-wrap">
+              <a class="btn order" href="https://wa.me/6283845138333?text=%5BOrder%5D%20Legmed%20Cloud%20-%20Paket%2016GB%2F4CPU%2F8TB%20-%20Rp%2075.000" target="_blank" rel="noopener">Order Sekarang</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="controls" id="dots" aria-label="indikator slide"></div>
+    </div>
+
+    <footer class="footer">
+      © 2025 Legmed Cloud. Semua hak dilindungi.
+    </footer>
+  </div>
+
+  <script>
+  // Simple carousel logic with auto-rotate + swipe
+  (function(){
+    const track = document.getElementById('track');
+    const dotsWrap = document.getElementById('dots');
+    const slides = Array.from(track.children);
+    const total = slides.length;
+    let index = 0;
+    let timer = null;
+
+    // Build dots
+    slides.forEach((_, i)=>{
+      const d = document.createElement('button');
+      d.className = 'dot' + (i===0 ? ' active' : '');
+      d.setAttribute('aria-label', 'Ke slide ' + (i+1));
+      d.onclick = ()=> go(i);
+      dotsWrap.appendChild(d);
+    });
+    const dots = Array.from(dotsWrap.children);
+
+    function go(i){
+      index = (i + total) % total;
+      track.style.transform = 'translateX(' + (-index*100) + '%)';
+      dots.forEach((d, di)=> d.classList.toggle('active', di===index));
+      resetAuto();
+    }
+
+    function next(){ go(index+1); }
+
+    function resetAuto(){
+      if(timer) clearInterval(timer);
+      timer = setInterval(next, 4500);
+    }
+    resetAuto();
+
+    // Swipe support
+    let sx = 0, dx = 0, touching = false;
+    track.addEventListener('touchstart', e=>{
+      touching = true; sx = e.touches[0].clientX; dx = 0; if(timer) clearInterval(timer);
+    }, {passive:true});
+    track.addEventListener('touchmove', e=>{
+      if(!touching) return;
+      dx = e.touches[0].clientX - sx;
+    }, {passive:true});
+    track.addEventListener('touchend', ()=>{
+      touching = false;
+      if(Math.abs(dx) > 40){
+        if(dx < 0) next(); else go(index-1);
+      } else {
+        resetAuto();
+      }
+    });
+    // Keyboard nav
+    window.addEventListener('keydown', (e)=>{
+      if(e.key === 'ArrowRight') next();
+      if(e.key === 'ArrowLeft') go(index-1);
+    });
+  })();
+  </script>
+</body>
+</html>
